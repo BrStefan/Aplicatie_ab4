@@ -7,31 +7,25 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-  	<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-  	<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-
   	<link rel="stylesheet" href="index_style.css">
 </head>
 
 <body>
 
 
-
+	<table id="tabel" class="table"></table>
 	<!-- Tabelul  in care o sa fie afisati utilizatorii-->
-	
 	<script>
 		$.getJSON("https://api.stackexchange.com/2.2/users?site=stackoverflow", function(json) {
-
-			var table = "<table><tr><td>Avatar</td>";
+			var table;
+			table = "<tr><td>Avatar</td>";
 			table += "<td>Nume de utilizator</td></tr>";
 			for(i=0;json.items[i];i++)
 			{
 				table+="<tr><td><img src="+json.items[i].profile_image+"></td>";
 				table+="<td>"+json.items[i].display_name+"</td></tr>";
 			}
-			table+="</table>";
-			document.write(table);
+			$("#tabel").append(table);
     	});
 	</script>
 
