@@ -7,19 +7,41 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
   	<link rel="stylesheet" href="index_style.css">
 </head>
 
 <body>
 
+	<div class="container-fluid">
 
-	<table id="tabel" class="table"></table>
+	<nav class="navbar navbar-fixed-top">
+		
+
+		<div class="typewriter">
+		  <center><h1>Stack Overflow Community</h1></center>
+		</div>
+
+
+	</nav>
+
 	<!-- Tabelul  in care o sa fie afisati utilizatorii-->
+	<center><table id="tabel" style="display:none;" ></table></center>
+
+	<div class="principal"><center><input type="button" value="Arata comunitatea" class="but" id="div" onclick="showDiv()" ></center></div>
+
+	</div>
+
+
+	<!-- Comunicarea cu API -->
 	<script>
-		$.getJSON("https://api.stackexchange.com/2.2/users?site=stackoverflow", function(json) {
+		function showDiv() {
+		document.getElementById('tabel').style.display = "inline";
+		document.getElementById('div').style.display = "none";
+		   $.getJSON("https://api.stackexchange.com/2.2/users?site=stackoverflow", function(json) {
 			var table;
-			table = "<tr><td>Avatar</td>";
-			table += "<td>Nume de utilizator</td></tr>";
+			table += "<tr><td colspan=2><center><b>Utilizator</b></center></td></tr>";
 			for(i=0;json.items[i];i++)
 			{
 				table+="<tr><td><img src="+json.items[i].profile_image+"></td>";
@@ -27,12 +49,8 @@
 			}
 			$("#tabel").append(table);
     	});
+		}
 	</script>
-
-
-	<!---->
-
-
 
 </body>
 

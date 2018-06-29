@@ -1,4 +1,100 @@
-#tabel
+body
 {
-	margin-left:100px;
+   background: url(bk.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+#tabel {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    height:70%;
+    margin:0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#tabel td, #tabel td {
+    border: 1px solid #ddd;
+}
+
+#tabel tr:nth-child(even){background-color: #f2f2f2;}
+
+#tabel tr:hover {background-color: red;}
+
+#tabel td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+nav
+{
+    height:20px;
+    background-color: black;
+    margin:0;
+    padding:0;
+    margin-bottom: 10px;
+}
+
+.typewriter h1 {
+  color: #fff;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+  margin-top: 5px;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 50% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: transparent; }
+}
+
+.principal
+{
+    background-color: transparent;
+    width:400px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top:200px;
+}
+
+.but
+{
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.but:hover {
+    background-color: #555555;
+    color: white;
 }
