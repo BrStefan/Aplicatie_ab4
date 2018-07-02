@@ -15,18 +15,20 @@ body
     height:70%;
     margin:0 auto;
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
-#tabel td, #tabel td {
+#tabel td, #tabel th {
     border: 1px solid #ddd;
+    padding:20px;
 }
 
 #tabel tr:nth-child(even){background-color: #f2f2f2;}
+#tabel tr:nth-child(odd){background-color: white;}
 
-#tabel tr:hover {background-color: red;}
+#tabel tr:hover {background-color: #ddd;}
 
-#tabel td {
+#tabel th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
@@ -97,4 +99,16 @@ nav
 .but:hover {
     background-color: #555555;
     color: white;
+}
+
+a
+{
+  text-decoration: none;
+  color:black;
+}
+
+a:hover
+{
+  text-decoration: none;
+  color:black;
 }

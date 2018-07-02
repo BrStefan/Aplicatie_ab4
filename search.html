@@ -1,0 +1,60 @@
+<html>
+
+<head>
+	<title>Aplicatie AB4</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+  	<link rel="stylesheet" href="search_style.css">
+</head>
+
+<body>
+
+	<div class="container-fluid">
+
+	<nav class="navbar navbar-fixed-top">
+		
+
+		<div class="typewriter">
+		  <center><h1>Stack Overflow Community</h1></center>
+		</div>
+
+
+	</nav>
+
+	<!-- Tabelul  in care o sa fie afisat utilizatorul-->
+	<center><br><br><br><table id="tabel"></table></center>
+
+	</div>
+
+
+	<!-- Comunicarea cu API -->
+	<script>
+			let params = (new URL(document.location)).searchParams;
+			let id = parseInt(params.get("id"));
+		    $.getJSON("https://api.stackexchange.com/2.2/users?site=stackoverflow", function(json) {
+			var table;
+			table += "<tr><th>Avatar</th><th>Nume</th><th>Locatie</th><th>Aur</th><th>Argint</th><th>Bronz</th></tr>";
+			name=json.items[id].display_name;
+			img=json.items[id].profile_image;
+			loc=json.items[id].location;
+			gold=json.items[id].badge_counts.gold;
+			silver=json.items[id].badge_counts.silver;
+			bronze=json.items[id].badge_counts.bronze;
+			table+="<tr><td><img src="+img+"></td>";
+			table+="<td>"+name+"</td>";
+			table+="<td>"+loc+"</td>";
+			table+="<td>"+gold+"</td>";
+			table+="<td>"+silver+"</td>";
+			table+="<td>"+bronze+"</td></tr>";
+			$("#tabel").append(table);
+    	});
+	</script>
+
+</body>
+
+</html>

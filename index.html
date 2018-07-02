@@ -27,8 +27,10 @@
 	</nav>
 
 	<!-- Tabelul  in care o sa fie afisati utilizatorii-->
-	<center><table id="tabel" style="display:none;" ></table></center>
+	<center><br><br><br><table id="tabel" style="display:none;" ></table></center>
 
+
+	<!-- Butonul care afiseaza tabelul -->
 	<div class="principal"><center><input type="button" value="Arata comunitatea" class="but" id="div" onclick="showDiv()" ></center></div>
 
 	</div>
@@ -41,11 +43,14 @@
 		document.getElementById('div').style.display = "none";
 		   $.getJSON("https://api.stackexchange.com/2.2/users?site=stackoverflow", function(json) {
 			var table;
-			table += "<tr><td colspan=2><center><b>Utilizator</b></center></td></tr>";
+			var name;
+			table += "<tr><th colspan=2><center><b>Utilizator</b></center></th></tr>";
 			for(i=0;json.items[i];i++)
 			{
-				table+="<tr><td><img src="+json.items[i].profile_image+"></td>";
-				table+="<td>"+json.items[i].display_name+"</td></tr>";
+				name=json.items[i].display_name;
+				img=json.items[i].profile_image;
+				table+="<tr><td><a href=search.html?id="+i+"><img src="+img+"></a></td>";
+				table+="<td><center><a href=search.html?id="+i+">"+name+"</center></td></tr>";
 			}
 			$("#tabel").append(table);
     	});
